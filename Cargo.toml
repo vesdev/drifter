@@ -1,0 +1,25 @@
+[package]
+name = "vueko"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+anyhow = "1.0.80"
+bevy = { version = "0.13.0", features = ["dynamic_linking", "exr"] }
+bevy_asset_loader = "0.20.0"
+bevy_rapier3d = "0.25.0"
+dotenvy = "0.15.7"
+eye = "0.5.0"
+tmi = "0.5.0"
+tokio = { version = "1.36.0", features = ["full"] }
+v4l = "0.14.0"
